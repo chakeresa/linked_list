@@ -1,11 +1,3 @@
-# > require "./lib/node"
-# > node = Node.new("Burke")
-# => <Node @surname="Burke" @next_node=nil #5678904567890>
-# > node.surname
-# => "Burke"
-# > node.next_node
-# => nil
-
 require './test/test_helper'
 
 class NodeTest < Minitest::Test
@@ -15,5 +7,10 @@ class NodeTest < Minitest::Test
 
   def test_it_exists
     assert_instance_of Node, @node
+  end
+
+  def test_it_has_surname_and_next_node
+    assert_equal "Burke", @node.surname
+    assert_nil @node.next_node
   end
 end
