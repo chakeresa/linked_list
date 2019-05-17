@@ -19,6 +19,10 @@ class LinkedList
     end
   end
 
+  def prepend(data)
+    @head = Node.new(data, @head)
+  end
+
   def count
     walk = @head
     count = 0
