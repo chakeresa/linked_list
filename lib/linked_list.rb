@@ -8,7 +8,15 @@ class LinkedList
   end
 
   def append(data)
-    @head = Node.new(data)
+    if @head
+      walk = @head
+      while walk.next_node
+        walk = walk.next_node
+      end
+      walk.next_node = Node.new(data)
+    else
+      @head = Node.new(data)
+    end
   end
 
   def count
@@ -29,10 +37,10 @@ class LinkedList
     string = ""
 
     if walk
-      string << family_string(walk.surname)
+      string << "The #{walk.surname} family"
       while walk.next_node
         walk = walk.next_node
-        string << family_string(walk.surname)
+        string << ", followed by " + family_string(walk.surname)
       end
     end
 
@@ -40,6 +48,6 @@ class LinkedList
   end
 
   def family_string(surname)
-    "The #{surname} family"
+    "the #{surname} family"
   end
 end

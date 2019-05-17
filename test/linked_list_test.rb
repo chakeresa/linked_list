@@ -20,12 +20,22 @@ class LinkedListTest < Minitest::Test
     assert_nil @linked_list.head.next_node
   end
 
+  def test_multiple_appends
+    @linked_list.append("West")
+    hardy = @linked_list.append("Hardy")
+    assert_equal hardy, @linked_list.head.next_node
+  end
+
   def test_count
     assert_equal 0, @linked_list.count
 
     @linked_list.append("West")
 
     assert_equal 1, @linked_list.count
+
+    @linked_list.append("Hardy")
+
+    assert_equal 2, @linked_list.count
   end
 
   def test_to_string
@@ -34,5 +44,9 @@ class LinkedListTest < Minitest::Test
     @linked_list.append("West")
 
     assert_equal "The West family", @linked_list.to_string
+
+    @linked_list.append("Hardy")
+
+    assert_equal "The West family, followed by the Hardy family", @linked_list.to_string
   end
 end
