@@ -1,8 +1,5 @@
 require './test/test_helper'
 
-# > list.to_string
-# => "The West family"
-
 class LinkedListTest < Minitest::Test
   def setup
     @linked_list = LinkedList.new
@@ -26,8 +23,16 @@ class LinkedListTest < Minitest::Test
   def test_count
     assert_equal 0, @linked_list.count
 
-    @linked_list.append("Wesunt")
+    @linked_list.append("West")
 
     assert_equal 1, @linked_list.count
+  end
+
+  def test_to_string
+    assert_equal "", @linked_list.to_string
+
+    @linked_list.append("West")
+
+    assert_equal "The West family", @linked_list.to_string
   end
 end
