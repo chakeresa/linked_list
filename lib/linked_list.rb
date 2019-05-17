@@ -24,14 +24,22 @@ class LinkedList
   end
 
   def insert(insert_index, data)
-    return append(data) if insert_index > count
-    return prepend(data) if insert_index == 0
-    # counter = 0
-    # walk = @head
-    # while walk.next_node
-    #   walk = walk.next_node
-    # end
-    # walk.next_node = Node.new(data)
+    case
+    when insert_index > count
+      append(data)
+    when insert_index == 0
+      prepend(data)
+    when insert_index <= count
+      counter = 0
+      walk = @head
+      while counter < insert_index - 1
+        walk = walk.next_node
+        counter += 1
+      end
+      walk.next_node = Node.new(data, walk.next_node)
+    else
+      "error"
+    end
   end
 
   def count

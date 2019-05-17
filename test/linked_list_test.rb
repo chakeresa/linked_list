@@ -61,14 +61,14 @@ class LinkedListTest < Minitest::Test
     assert_equal 3, @linked_list.count
   end
 
-  # def test_insert
-  #   brooks = @linked_list.append("Brooks")
-  #   henderson = @linked_list.append("Henderson")
-  #   mckinney = @linked_list.prepend("McKinney")
-  #   lawson = @linked_list.insert(1, "Lawson")
-  #
-  #   assert_equal "The McKinney family, followed by the Lawson family, followed by the Brooks family, followed by the Henderson family", @linked_list.to_string
-  # end
+  def test_insert
+    @linked_list.append("Brooks")
+    @linked_list.append("Henderson")
+    @linked_list.prepend("McKinney")
+    @linked_list.insert(1, "Lawson")
+
+    assert_equal "The McKinney family, followed by the Lawson family, followed by the Brooks family, followed by the Henderson family", @linked_list.to_string
+  end
 
   def test_insert_with_index_0_prepends
     brooks = @linked_list.append("Brooks")
